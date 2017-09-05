@@ -1,8 +1,9 @@
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
+$header-height: 190px;
 $body-width: 960px;
 $logo-width: 260px;
-$box-size: 190px;
+$box-size: 150px;
 
 
 html, body, div {
@@ -28,28 +29,31 @@ body {
 	padding: 20px;
 	background: rgba(255,255,255,0.5);
 	width: $body-width;
-	height: 220px;
+	height: $header-height;
 	padding-right: 0;
 	#logo {
 		width: $logo-width;
 		text-align: center;
 		float: left;
+		img {
+			width: 90px;
+		}
 	}
 	
 	#logo #logo-text {
 		font-weight: 200;
 		line-height: 20px;
 		.main-text {
-			font-size: 20px;
+			font-size: 16px;
 		}
 		.sub-text {
-			font-size: 14px;
+			font-size: 12px;
 			color: #eee;
 		}
 	}
 	
 	.nav {
-		width: 650px;
+		width: 580px;
 		margin-top: 100px;
 		border-top-left-radius: 2em;
     	border-bottom-left-radius: 2em;
@@ -58,7 +62,8 @@ body {
     	color: #eee;
     	background-color: #5542b4;
 		li {
-			display: inline-block;
+			display: block;
+			float: right;
     		padding: 0 5px;
 			a {
 				color: #eee;
@@ -91,13 +96,15 @@ body {
 		font-weight: 300;
 		text-transform: uppercase; 
 		img {
-			width: 80px;
+			width: 40px;
 			display: block;
 			margin: 0 auto;
+			margin-top: 20px;
 		}
 		span {
-			margin-top: 20px;
+			margin-top: 30px;
 			display: block;
+			font-size: 11px;
 		}
 	}
 	
@@ -126,15 +133,16 @@ body {
 	background-color: rgba(255,255,255,0.5);
 	padding: 40px 80px;
 	width: $body-width;
-	margin: 20px auto;
+	margin: 0  auto 20px auto;
 }
 
 #footer {
 	width: 100%;
 	background-color: rgba(255,255,255,0.5);
-	height: 60px;
+	height: 40px;
 	text-align: center;
 	p {
-		padding-top: 20px;
+		padding-top: 12px;
+		font-size: 11px;
 	}
 }
