@@ -45,12 +45,33 @@
         	</div>
         	<div class="clear"> </div>
         	<div id="content">
-        		<h1>Welcome to Honorary Consulate of Cambodia in Ontario, Canada</h1>
-        		<p>The Consulate is the formal communication link between the Cambodian and the Canadian governments. The Ambassador heads the Embassy and is the official representative to Canada of the Swedish Government. We monitor and report back to the Swedish government on political, economic and financial events and developments in Canada that are of relevance for our bilateral relations. 
-The Embassy fulfils the role of a Swedish public authority when it comes to consular and migration-related matters, which include issuance of passports and different kinds of certificates, visas for students, residence and work permits as well as assistance to Swedes in emergency situations.
-With the inclusion of biometric data in European Union passports in order to avoid forging, passport applications can only be made with special equipment at the Embassy. Ready passports can be picked up at Swedish consulates across Canada or at any Swedish Embassy or Consulate around the world.
-Sweden has Honorary Consuls providing consular and other services in Calgary, Edmonton, Halifax, Montréal, Québec City, Regina, Toronto, Vancouver and Winnipeg.
-</p>
+        		<div id="map-canvas" style="width:50%;height:290px;float:right;"></div>
+        		<div id="contact">
+        		<h1>Consulate of the Kingdom of Cambodia in Toronto</h1>
+				<table>
+					<tr>
+						<td>
+						297 Campbell  Avenue, Toronto, ON M6P 3V7
+						</td>
+					</tr>
+					<tr>
+						<td>Contact number: (416)726-2318</td>
+					</tr>
+					<tr><td>Email: <a href="mailto:info@cambodiaconsulate.ca">info@cambodiaconsulate.ca</a></td></tr>
+					<tr>
+						<td>*Note: Consulate will be moved to another address</td>
+					</tr>
+					<tr>
+						<td>Consular Office Hours</td>
+					</tr>
+					<tr>
+						<td>Wednesday only</td>
+					</tr>
+					<tr>
+						<td>9:00am - 5:00pm </td>
+					</tr>
+				</table>
+				</div>
         	</div>
         	<div class="clear"> </div>
         	<div id="footer">
@@ -60,6 +81,41 @@ Sweden has Honorary Consuls providing consular and other services in Calgary, E
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="dist/js/bootstrap.min.js"></script>
         <script src="dist/js/app.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+        <script>
+        	function initialize() {
+    	pos = new google.maps.LatLng(43.6550134,-79.4373227);
+        var mapOptions = {
+          disableDefaultUI: true,
+          center: pos,
+          zoom: 16
+        };
+  		
+        map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+            
+        var marker = new google.maps.Marker({
+        	map:map,
+        	position: pos,
+        	zIndex: 200
+        });
+        html = "<div style='width:200px;padding:0 10px 10px 15px'><h4>Consulate of the Kingdom of Cambodia in Toronto</h4></div>";
+
+        var info = new google.maps.InfoWindow({
+        	map: map,
+        	position: pos,
+        	content: html
+        });
+        
+        google.maps.event.addDomListener(marker, 'click', function(){
+        	info.open(map,marker);
+        });
+        
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+	
+	</script>
+        </script>
     </body>
 </html>
 
