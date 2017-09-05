@@ -150,3 +150,27 @@ body {
 #contact {
 	width: 45%;
 }
+
+table.data {
+	width: 90%;
+	margin: 0 auto;
+	border-collapse: collapse;
+	margin: 15px;
+	tr {
+		th {
+			text-align: center;
+			padding: 5px 15px;
+			background-color: #ccc!important;
+		}
+		td {
+			padding: 5px 15px;
+		}
+	}
+	tr:nth-child(even) {
+		background-color: rgba(255,255,255, 0.1);
+	}
+}
+
+table.data, table.data td, table.data th {
+	border: 1px solid #777;
+}
