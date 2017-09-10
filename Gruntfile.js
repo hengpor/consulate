@@ -6,6 +6,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-contrib-connect");
     grunt.loadNpmTasks("grunt-contrib-watch");
+    grunt.loadNpmTasks('grunt-contrib-jade');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.initConfig({
 
@@ -47,6 +49,30 @@ module.exports = function(grunt) {
             }
         },
 
+		jade: {
+			compile: {
+				options: {
+					client: false,
+					pretty: true
+				},
+				files: [ {
+					src: "templates/*.jade",
+					dest: "build",
+					expand: true,
+					ext: ".html"
+				} ]
+			}
+		},
+		
+		copy: {
+			main: {
+				expand: true,
+				cwd : 'build/templates/',
+				src: '*',
+				dest : 'build/..'
+			}
+		},
+
         watch: {
 
             js: {
@@ -57,9 +83,13 @@ module.exports = function(grunt) {
             scss: {
                 files: ["src/scss/**/*.scss"],
                 tasks: ["sass:dev"]
+            },
+            jade: {
+            	files: ["templates/*.jade"],
+            	tasks: ["jade", "copy:main"]
             }
         }
     });
 
-    grunt.registerTask("all", ["sass:dev", "uglify:dev", "connect:server", "watch"]);
+    grunt.registerTask("all", ["sass:dev", "uglify:dev", "connect:server", "jade", "copy", "watch"]);
 };
