@@ -49,29 +49,29 @@ module.exports = function(grunt) {
             }
         },
 
-		jade: {
-			compile: {
-				options: {
-					client: false,
-					pretty: true
-				},
-				files: [ {
-					src: "templates/*.jade",
-					dest: "build",
-					expand: true,
-					ext: ".html"
-				} ]
-			}
-		},
-		
-		copy: {
-			main: {
+	jade: {
+		compile: {
+			options: {
+				client: false,
+				pretty: true
+			},
+			files: [ {
+				src: "templates/*.jade",
+				dest: "build",
 				expand: true,
-				cwd : 'build/templates/',
-				src: '*',
-				dest : 'build/..'
-			}
-		},
+				ext: ".html"
+			} ]
+		}
+	},
+
+	copy: {
+		main: {
+			expand: true,
+			cwd : 'build/templates/',
+			src: '*',
+			dest : 'build/..'
+		}
+	},
 
         watch: {
 
